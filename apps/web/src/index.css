@@ -11,15 +11,21 @@
 
 html,
 body {
-	@apply bg-white dark:bg-gray-950;
+	@apply bg-white text-gray-900;
+	color-scheme: light;
+}
 
-	@media (prefers-color-scheme: light) {
-		color-scheme: light;
-	}
+/* Tema claro aplicado no dark mode apenas quando a classe .dark estiver presente */
+html.dark,
+body.dark {
+	@apply bg-gray-950 text-white;
+	color-scheme: dark;
 }
 
 :root {
 	--radius: 0.625rem;
+	
+	/* Variáveis do tema claro (padrão) */
 	--background: oklch(1 0 0);
 	--foreground: oklch(0.145 0 0);
 	--card: oklch(1 0 0);
@@ -53,6 +59,7 @@ body {
 	--sidebar-ring: oklch(0.708 0 0);
 }
 
+/* Variáveis do tema escuro aplicadas apenas quando .dark estiver presente */
 .dark {
 	--background: oklch(0.145 0 0);
 	--foreground: oklch(0.985 0 0);
